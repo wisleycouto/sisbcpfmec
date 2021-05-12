@@ -1,6 +1,6 @@
 FROM centos/httpd
 
-MAINTAINER Wisley Couto <wisley.alves@gmail.com>
+MAINTAINER Jose Carlos Fernandes <joselgn@gmail.com>
 
 RUN yum -y update && yum -y install wget gcc-c++ make http://rpms.remirepo.net/enterprise/remi-release-7.rpm && yum clean all
 
