@@ -1,0 +1,30 @@
+version: '3.2'
+services:
+  db:
+    image: postgres
+    container_name: postgres_db
+    restart: always
+    ports:
+      - "3300:5432"
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: sisbcpfmec      
+   
+
+  app:    
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app-sisbcpfmec
+    volumes:
+      - ./.:/var/www/html
+    ports:
+      - "8071:80"
+    privileged: true
+    links:
+      - "db:database"
+   
+   
