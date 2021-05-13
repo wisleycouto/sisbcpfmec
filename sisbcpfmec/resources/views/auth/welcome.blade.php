@@ -41,8 +41,8 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <base href="https://www.gov.br/pt-br/orgaos-do-governo" />
       <!--[if lt IE 7]></base><![endif]-->
-      <meta property="og:title" content="Órgãos do Governo" />
-      <meta property="og:description" content="" />
+      <meta property="og:title" content="SISBCPFMEC" />
+      <meta property="og:description" content="" /> 
       <meta property="og:type" content="article" />
       <meta property="og:url" content="https://www.gov.br/pt-br/orgaos-do-governo/ministerios-e-orgaos-com-status-de-ministerios" />
       <meta property="og:image" content="https://www.gov.br/logo.png" />
@@ -99,7 +99,7 @@
       <script defer="defer" src="https://www.gov.br/++resource++brasil.gov.agenda/brasilgovagenda-720c34e.js"></script>
       <link rel="stylesheet" href="https://www.gov.br/++resource++brasil.gov.portal/brasilgovportal-b9966f9.css" />
       <script defer="defer" src="https://www.gov.br/++resource++brasil.gov.portal/brasilgovportal-b9966f9.js"></script>
-      <title>Órgãos do Governo — Português (Brasil)</title>
+      <title>SISBCPFMEC</title>
       <link rel="http://purl.org/dc/terms/subject http://schema.org/about http://xmlns.com/foaf/0.1/primaryTopic" href="http://vocab.e.gov.br/2011/03/vcge#esquema" />
       <link rel="author" href="https://www.gov.br/pt-br/author/69336555120" title="Informações do Autor" />
       <link rel="canonical" href="https://www.gov.br/pt-br/orgaos-do-governo" />
@@ -216,9 +216,9 @@
                      </a>
                   </li>
                </ul>
-               <a href="https://acesso.gov.br" class="link-acesso">
+               <a href="{{route('login')}}" class="link-acesso">
                <span class="fas fa-user"></span>
-               Entrar
+               Sair
                </a>
             </div>
          </div>

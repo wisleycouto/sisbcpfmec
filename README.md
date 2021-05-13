@@ -20,7 +20,7 @@ Composer is run at boot time and will automatically install the vendors.
 
 For now the project has been tested on Linux only but should run fine on Docker for Windows and Docker for Mac.
 
-You will need:
+You will need: 
 
 * [Docker CE](https://docs.docker.com/engine/installation/)
 * [Docker Compose](https://docs.docker.com/compose/install)
