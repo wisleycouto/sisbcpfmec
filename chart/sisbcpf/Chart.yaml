@@ -1,0 +1,12 @@
+name: sisbcpf
+version: 1.0.0
+appVersion: 1.0.0
+description: sisbcpf
+keywords:
+  - sisbcpf
+home:
+sources:
+  - http://gitlabbuilder.mec.gov.br/sisbcpf/sisbcpf.git
+maintainers:
+  - name: STIC-CGS-Arquitetura - mec
+    email: STIC-CGS-Arquitetura@mec.gov.br

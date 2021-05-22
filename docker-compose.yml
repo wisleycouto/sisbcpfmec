@@ -1,0 +1,66 @@
+version: '3.1'
+services:
+  sisbcpf-db:
+    container_name: sisbcpf_pgslq_db
+    image: postgres
+    environment:
+      POSTGRES_DB: 'dbsisbcpf'
+      POSTGRES_PASSWORD: 'root'
+      POSTGRES_USER: 'root'
+    ports:
+            - '5434:5434'
+    volumes:
+      - ./db/sisbcpf/pgdata:/var/lib/postgresql/data
+
+  sisbcpf-api:
+    container_name: sisbcpf_api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 7081:80
+    environment:
+      APP_ENV: 'dev'
+      APP_DEBUG: 'true'
+      APP_URL: 'http://localhost:7081'
+      DATABASE_DRIVER: 'pdo_pgsql'
+      DATABASE_HOST: sisbcpf-db
+      DATABASE_PORT: '5432'
+      DATABASE_NAME: 'sisbcpf'
+      DATABASE_USER: 'root'
+      DATABASE_PASSWORD: 'root'
+    restart: always
+    depends_on:
+      - sisbcpf-db
+
+  sisbcpf-php-fpm:
+    container_name: sisbcpf_php_fpm
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_DRIVER: 'pdo_pgsql'
+      DATABASE_HOST: sisbcpf-db
+      DATABASE_PORT: '5434'
+      DATABASE_NAME: 'dbsisbcpf'
+      DATABASE_USER: 'root'
+      DATABASE_PASSWORD: 'root'
+    command: php artisan migrate --seed
+    depends_on:
+      - sisbcpf-db
+
+  sisbcpf-frontend:
+    container_name: sisbcpf_frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile-dev
+    environment:
+      APP_URL: 'http://localhost:7081'
+    volumes:
+      - ./frontend/react:/var/www/html
+    ports:
+      - 7080:3000
+
+networks:
+  default:
+    driver: bridge
